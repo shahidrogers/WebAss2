@@ -103,10 +103,12 @@
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="App_Data\ticketo-DB.mdf" />
+    <Content Include="App_Data\ticketo-DB_log.ldf">
+      <DependentUpon>ticketo-DB.mdf</DependentUpon>
+    </Content>
     <Content Include="Events.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />

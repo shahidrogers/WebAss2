@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
-    <p>To proceed to the admin/clerk panel, please enter your details below.</p>
+    <p>Please log in to continue.</p>
 
     <label class="sr-only">Username</label>
     <asp:TextBox runat="server" type="text" ID="tbUsername" class="form-control" placeholder="Username" />
@@ -13,6 +13,7 @@
             <asp:CheckBox ID="cbRememberMe" runat="server" /> Remember Me
         </label>
     </div>
+
     <asp:Button ID="btnSubmit" runat="server" class="btn btn-lg btn-primary" Text="Log in" OnClick="btnSubmit_Click" />
 
 </asp:Content>

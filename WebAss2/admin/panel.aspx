@@ -16,7 +16,7 @@
             <p>Here are all of your events.</p>
 
             <p>
-                <asp:GridView ID="gvEvents" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="eventId" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
+                <asp:GridView ID="gvEvents" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="eventId" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" OnRowDataBound="gvEvents_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="eventId" HeaderText="Event ID" InsertVisible="False" ReadOnly="True" SortExpression="eventId" />
                         <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />

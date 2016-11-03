@@ -108,14 +108,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\addevent.aspx" />
+    <Content Include="admin\EventDetails.aspx" />
     <Content Include="admin\panel.aspx" />
     <Content Include="App_Data\ticketo-DB.mdf" />
     <Content Include="App_Data\ticketo-DB_log.ldf">
       <DependentUpon>ticketo-DB.mdf</DependentUpon>
     </Content>
+    <Content Include="clerk\SearchReservation.aspx" />
+    <Content Include="clerk\ReservationDetails.aspx" />
+    <Content Include="EventDetails.aspx" />
+    <Content Include="ReservationStatus.aspx" />
     <Content Include="clerk\panel.aspx" />
+    <Content Include="CheckStatus.aspx" />
     <Content Include="Events.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="CancelReservation.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -184,6 +190,13 @@
     <Compile Include="admin\addevent.aspx.designer.cs">
       <DependentUpon>addevent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\EventDetails.aspx.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\EventDetails.aspx.designer.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\panel.aspx.cs">
       <DependentUpon>panel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,12 +205,47 @@
       <DependentUpon>panel.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="clerk\SearchReservation.aspx.cs">
+      <DependentUpon>SearchReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clerk\SearchReservation.aspx.designer.cs">
+      <DependentUpon>SearchReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="clerk\ReservationDetails.aspx.cs">
+      <DependentUpon>ReservationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clerk\ReservationDetails.aspx.designer.cs">
+      <DependentUpon>ReservationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventDetails.aspx.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventDetails.aspx.designer.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationStatus.aspx.cs">
+      <DependentUpon>ReservationStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReservationStatus.aspx.designer.cs">
+      <DependentUpon>ReservationStatus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="clerk\panel.aspx.cs">
       <DependentUpon>panel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="clerk\panel.aspx.designer.cs">
       <DependentUpon>panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckStatus.aspx.cs">
+      <DependentUpon>CheckStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckStatus.aspx.designer.cs">
+      <DependentUpon>CheckStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
@@ -207,12 +255,12 @@
       <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="CancelReservation.aspx.cs">
+      <DependentUpon>CancelReservation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="CancelReservation.aspx.designer.cs">
+      <DependentUpon>CancelReservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

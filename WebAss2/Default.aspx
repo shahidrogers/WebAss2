@@ -2,10 +2,15 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron" style="background-image:url('/img/bg-event.jpg');">
-        <h1 style="color:darkorange;">Tickets to anything</h1>
-        <p class="lead" ><b>ticketo</b> is a one-stop platform for discovering events and purchasing tickets.</p>
-        <p><a href="/Events" class="btn btn-primary btn-lg">Check out events &raquo;</a></p>
+    <div class="jumbotron text-center" style="background-image:url('/img/bg-event-gif.gif');background-size: cover;background-repeat: no-repeat;">
+        <h1 style="color:white;font-weight: bold;text-shadow: 4px 4px 2px #000000;">FIND YOUR<br />NEXT EXPERIENCE</h1>
+    </div>
+
+    <div>
+        <center>
+            <p class="lead" ><b>ticketo</b> is a one-stop platform<br />for discovering events & purchasing tickets.</p>
+            <p><a href="/Events" style="width:400px;" class="btn btn-danger btn-lg">Discover events &raquo;</a></p>
+        </center>
     </div>
 
     <%--<div class="row">

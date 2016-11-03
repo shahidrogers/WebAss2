@@ -4,17 +4,15 @@
     <h2><%: Title %></h2>
     <p>To proceed to the admin/clerk panel, please enter your details below.</p>
 
-    <form class="form-signin">
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-            <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary" type="submit">Log in</button>
-    </form>
+    <label class="sr-only">Username</label>
+    <asp:TextBox runat="server" type="text" ID="tbUsername" class="form-control" placeholder="Username" />
+    <label class="sr-only">Password</label>
+    <asp:TextBox runat="server" type="Password" id="tbPassword" class="form-control" placeholder="Password" />
+    <div class="checkbox">
+        <label>
+            <asp:CheckBox ID="cbRememberMe" runat="server" /> Remember Me
+        </label>
+    </div>
+    <asp:Button ID="btnSubmit" runat="server" class="btn btn-lg btn-primary" Text="Log in" OnClick="btnSubmit_Click" />
 
 </asp:Content>

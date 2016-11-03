@@ -11,7 +11,7 @@ namespace WebAss2
 {
 
 
-    public partial class About
+    public partial class Events
     {
     }
 }

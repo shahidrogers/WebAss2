@@ -10,6 +10,8 @@
                 <li role="presentation"><a href="panel.aspx">View Events</a></li>
                 <li role="presentation" class="active"><a href="#">Add Event</a></li>
             </ul>
+            <br />
+            <asp:Button class="btn btn-default btn-block" ID="btnLogout" runat="server" Text="Log Out" OnClick="btnLogout_Click" />
         </div>
         <div class="col-md-10">
             <h2>Add a new event</h2>
@@ -36,7 +38,14 @@
             <p>
                 <div class="row">
                   <div class="col-md-2"><b>Location</b></div>
-                  <div class="col-md-10"><asp:TextBox ID="tbLocation" Width="200px" runat="server"></asp:TextBox></div>
+                  <div class="col-md-10">
+                      <%--<asp:TextBox ID="tbLocation" Width="200px" runat="server"></asp:TextBox>--%>
+                      <asp:DropDownList ID="ddlLocation" Width="200px" runat="server">
+                          <asp:ListItem Text="Kuala Lumpur, MY" Value="Kuala Lumpur, MY"></asp:ListItem>
+                          <asp:ListItem Text="Petaling Jaya, MY" Value="Petaling Jaya, MY"></asp:ListItem>
+                          <asp:ListItem Text="Shah Alam, MY" Value="Shah Alam, MY"></asp:ListItem>
+                      </asp:DropDownList>
+                  </div>
                 </div>
             </p>
             <p>

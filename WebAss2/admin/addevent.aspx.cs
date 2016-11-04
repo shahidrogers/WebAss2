@@ -13,7 +13,12 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //check if user is authenticated or not
+            if (Request.Cookies["TicketoLoginAs"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -49,7 +54,7 @@ namespace WebAss2
 
                 param[0].Value = tbTitle.Text;
                 param[1].Value = tbDescription.Text;
-                param[2].Value = tbLocation.Text;
+                param[2].Value = ddlLocation.SelectedValue;
                 param[3].Value = calDate.SelectedDate;
                 param[4].Value = Int32.Parse(tbTicketQty.Text);
                 param[5].Value = decimal.Parse(tbPrice.Text);
@@ -78,5 +83,18 @@ namespace WebAss2
             }
 
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            //clear cookie
+            if (Request.Cookies["TicketoLoginAs"] != null)
+            {
+                Response.Cookies["TicketoLoginAs"].Expires = DateTime.Now.AddHours(-1);
+            }
+
+            //redirect to home page
+            Response.Redirect("~/Login.aspx");
+        }
+
     }
 }

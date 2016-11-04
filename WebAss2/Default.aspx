@@ -4,12 +4,19 @@
 
     <div class="jumbotron text-center" style="background-image:url('/img/bg-event-gif.gif');background-size: cover;background-repeat: no-repeat;">
         <h1 style="color:white;font-weight: bold;text-shadow: 4px 4px 2px #000000;">FIND YOUR<br />NEXT EXPERIENCE</h1>
+        <br />
+        <center>
+            <asp:TextBox ID="tbSearch" runat="server" class="form-control" placeholder="Search for... Maroon 5 perhaps?"></asp:TextBox>
+            <asp:Button ID="btnSearch" class="btn btn-default" runat="server" Text="Search" />
+        </center>
+
+
     </div>
 
     <div>
         <center>
             <p class="lead" ><b>ticketo</b> is a one-stop platform<br />for discovering events & purchasing tickets.</p>
-            <p><a href="/Events" style="width:400px;" class="btn btn-danger btn-lg">Discover events &raquo;</a></p>
+            <p><a href="/Events" style="width:400px;" class="btn btn-danger btn-lg">Discover all events &raquo;</a></p>
         </center>
     </div>
 

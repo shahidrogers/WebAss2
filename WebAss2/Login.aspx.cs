@@ -17,16 +17,16 @@ namespace WebAss2
             //check if logged in already via session
             try
             {
-                if(Session["TicketoLoginAs"] != null)
+                if(!IsPostBack)
                 {
-                    string checkSession = Session["TicketoLoginAs"].ToString();
-                    Response.Write("<script>alert('Logged in as: " + checkSession + "')</script>");
-                    if (checkSession.Equals("admin"))
+                    string checkCookie = Request.Cookies["TicketoLoginAs"].Value.ToString();
+                    Response.Write("<script>alert('Logged in as: " + checkCookie + "')</script>");
+                    if (checkCookie.Equals("admin"))
                     {
                         //if logged in as admin previously, redirect to admin panel
                         Response.Redirect("admin/panel.aspx");
                     }
-                    else if (checkSession.Equals("clerk"))
+                    else if (checkCookie.Equals("clerk"))
                     {
                         //if logged in as clerk previously, redirect to admin panel
                         Response.Redirect("clerk/panel.aspx");
@@ -59,14 +59,22 @@ namespace WebAss2
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    //redirect user to admin panel
-                    //TODO: check user type before redirecting to admin/clerk panel
-                    Response.Redirect("admin/panel.aspx");
+                    //check if admin or clerk
+                    String userType = "";
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        userType = row["userType"].ToString();
+                    }
 
-                    //save session
-                    this.Session["TicketoLoginAs"] = "admin";
-                    //Response.Cookies["TicketoLoginCookie"].Value = "admin";
-                    //Response.Cookies["TicketoLoginCookie"].Expires = DateTime.Now.AddHours(1);
+                    //save cookie
+                    //this.Session["TicketoLoginAs"] = "admin";
+                    HttpCookie cookie = new HttpCookie("TicketoLoginAs");
+                    cookie.Value = userType;
+                    cookie.Expires = DateTime.Now.AddHours(1);
+                    Response.Cookies.Add(cookie);
+
+                    //redirect user to admin or clerk panel
+                    Response.Redirect(userType + "/panel.aspx");
                 }
                 else
                 {

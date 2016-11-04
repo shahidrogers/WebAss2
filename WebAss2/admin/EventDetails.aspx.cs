@@ -11,7 +11,12 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //check if user is authenticated or not
+            if (Request.Cookies["TicketoLoginAs"] == null)
+            {
+                //redirect to login page
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
     }

@@ -10,6 +10,8 @@
                 <li role="presentation"><a href="panel.aspx">View Reservations</a></li>
                 <li role="presentation" class="active"><a href="#">Search Reservation</a></li>
             </ul>
+            <br />
+            <asp:Button class="btn btn-default btn-block" ID="btnLogout" runat="server" Text="Log Out" OnClick="btnLogout_Click" />
         </div>
         <div class="col-md-10">
             <h2>Search Reservation</h2>

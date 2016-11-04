@@ -13,6 +13,15 @@ namespace WebAss2 {
     public partial class addevent {
         
         /// <summary>
+        /// btnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
+        
+        /// <summary>
         /// tbTitle control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace WebAss2 {
         protected global::System.Web.UI.WebControls.TextBox tbVenue;
         
         /// <summary>
-        /// tbLocation control.
+        /// ddlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbLocation;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
         
         /// <summary>
         /// calDate control.

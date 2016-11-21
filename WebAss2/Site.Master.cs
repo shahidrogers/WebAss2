@@ -11,7 +11,26 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["TicketoLoginAs"] != null)
+            {
+                BtnLogin.Visible = false;
 
+                if (Request.Cookies["TicketoLoginAs"].Value.ToString().Equals("customer"))
+                {
+                    ListLoggedIn.Visible = false;
+                    BtnLogout.Visible = true;
+                } else
+                {
+                    ListLoggedIn.Visible = true;
+                    BtnLogout.Visible = false;
+                }
+                
+            } else
+            {
+                BtnLogin.Visible = true;
+                ListLoggedIn.Visible = false;
+                BtnLogout.Visible = false;
+            }
         }
     }
 }

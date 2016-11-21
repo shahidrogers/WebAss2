@@ -13,6 +13,33 @@ namespace WebAss2 {
     public partial class SiteMaster {
         
         /// <summary>
+        /// BtnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BtnLogin;
+        
+        /// <summary>
+        /// ListLoggedIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ListLoggedIn;
+        
+        /// <summary>
+        /// BtnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BtnLogout;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

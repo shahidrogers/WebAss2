@@ -20,7 +20,7 @@ namespace WebAss2
                 if(!IsPostBack)
                 {
                     string checkCookie = Request.Cookies["TicketoLoginAs"].Value.ToString();
-                    Response.Write("<script>alert('Logged in as: " + checkCookie + "')</script>");
+                   
                     if (checkCookie.Equals("admin"))
                     {
                         //if logged in as admin previously, redirect to admin panel
@@ -30,6 +30,12 @@ namespace WebAss2
                     {
                         //if logged in as clerk previously, redirect to admin panel
                         Response.Redirect("clerk/panel.aspx");
+                    } else
+                    {
+                        HttpCookie myCookie = new HttpCookie("TicketoLoginAs");
+                        myCookie.Expires = DateTime.Now.AddDays(-1d);
+                        Response.Cookies.Add(myCookie);
+                        Response.Redirect("~/Default.aspx");
                     }
                 }
             }
@@ -61,9 +67,11 @@ namespace WebAss2
                 {
                     //check if admin or clerk
                     String userType = "";
+                    String userId = "";
                     foreach (DataRow row in dt.Rows)
                     {
                         userType = row["userType"].ToString();
+                        userId = row["userId"].ToString();
                     }
 
                     //save cookie
@@ -73,8 +81,20 @@ namespace WebAss2
                     cookie.Expires = DateTime.Now.AddHours(1);
                     Response.Cookies.Add(cookie);
 
+                    HttpCookie cookieUserId = new HttpCookie("TicketoUserId");
+                    cookieUserId.Value = userId;
+                    cookieUserId.Expires = DateTime.Now.AddHours(1);
+                    Response.Cookies.Add(cookieUserId);
+
                     //redirect user to admin or clerk panel
-                    Response.Redirect(userType + "/panel.aspx");
+                    if (userType.Equals("customer"))
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    } else
+                    {
+                        Response.Redirect(userType + "/panel.aspx");
+                    }
+                    
                 }
                 else
                 {

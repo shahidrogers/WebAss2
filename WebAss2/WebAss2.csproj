@@ -107,16 +107,23 @@
     <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\updateevent.aspx" />
     <Content Include="admin\addevent.aspx" />
     <Content Include="admin\EventDetails.aspx" />
     <Content Include="admin\panel.aspx" />
+    <Content Include="App_Data\AdRotator.xml" />
     <Content Include="App_Data\ticketo-DB.mdf" />
     <Content Include="App_Data\ticketo-DB_log.ldf">
       <DependentUpon>ticketo-DB.mdf</DependentUpon>
     </Content>
     <Content Include="clerk\SearchReservation.aspx" />
     <Content Include="clerk\ReservationDetails.aspx" />
+    <Content Include="clerk\Tickets.aspx" />
     <Content Include="EventDetails.aspx" />
+    <Content Include="Events_Search.aspx" />
+    <Content Include="Images\JohnMayer.jpg" />
+    <Content Include="Images\LinkinPark.jpg" />
+    <Content Include="Images\Maroon5.jpg" />
     <Content Include="ReservationStatus.aspx" />
     <Content Include="clerk\panel.aspx" />
     <Content Include="CheckStatus.aspx" />
@@ -183,6 +190,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\updateevent.aspx.cs">
+      <DependentUpon>updateevent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\updateevent.aspx.designer.cs">
+      <DependentUpon>updateevent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\addevent.aspx.cs">
       <DependentUpon>addevent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,12 +233,26 @@
     <Compile Include="clerk\ReservationDetails.aspx.designer.cs">
       <DependentUpon>ReservationDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="clerk\Tickets.aspx.cs">
+      <DependentUpon>Tickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clerk\Tickets.aspx.designer.cs">
+      <DependentUpon>Tickets.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EventDetails.aspx.cs">
       <DependentUpon>EventDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EventDetails.aspx.designer.cs">
       <DependentUpon>EventDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events_Search.aspx.cs">
+      <DependentUpon>Events_Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events_Search.aspx.designer.cs">
+      <DependentUpon>Events_Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReservationStatus.aspx.cs">
       <DependentUpon>ReservationStatus.aspx</DependentUpon>

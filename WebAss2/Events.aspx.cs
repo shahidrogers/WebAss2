@@ -11,7 +11,8 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SqlDataSource1.SelectParameters.Clear();
+            SqlDataSource1.SelectParameters.Add("date", System.TypeCode.DateTime, DateTime.Now.ToShortDateString());
         }
 
         protected void gvEvents_RowDataBound(object sender, GridViewRowEventArgs e)

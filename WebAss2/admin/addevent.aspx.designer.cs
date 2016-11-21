@@ -31,6 +31,15 @@ namespace WebAss2 {
         protected global::System.Web.UI.WebControls.TextBox tbTitle;
         
         /// <summary>
+        /// rfvTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTitle;
+        
+        /// <summary>
         /// tbDescription control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace WebAss2 {
         protected global::System.Web.UI.WebControls.TextBox tbDescription;
         
         /// <summary>
+        /// rfvDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
+        
+        /// <summary>
         /// tbVenue control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace WebAss2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbVenue;
+        
+        /// <summary>
+        /// rfvVenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvVenue;
         
         /// <summary>
         /// ddlLocation control.
@@ -67,6 +94,15 @@ namespace WebAss2 {
         protected global::System.Web.UI.WebControls.Calendar calDate;
         
         /// <summary>
+        /// CVDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CVDate;
+        
+        /// <summary>
         /// tbTicketQty control.
         /// </summary>
         /// <remarks>
@@ -76,6 +112,24 @@ namespace WebAss2 {
         protected global::System.Web.UI.WebControls.TextBox tbTicketQty;
         
         /// <summary>
+        /// rfvTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTicket;
+        
+        /// <summary>
+        /// rvTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvTicket;
+        
+        /// <summary>
         /// tbPrice control.
         /// </summary>
         /// <remarks>
@@ -83,6 +137,24 @@ namespace WebAss2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPrice;
+        
+        /// <summary>
+        /// rfvPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrice;
+        
+        /// <summary>
+        /// rvPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvPrice;
         
         /// <summary>
         /// btnSubmit control.

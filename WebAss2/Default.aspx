@@ -7,7 +7,7 @@
         <br />
         <center>
             <asp:TextBox ID="tbSearch" runat="server" class="form-control" placeholder="Search for... Maroon 5 perhaps?"></asp:TextBox>
-            <asp:Button ID="btnSearch" class="btn btn-default" runat="server" Text="Search" />
+            <asp:Button ID="btnSearch" class="btn btn-default" runat="server" OnClick ="btnSearch_OnClick" Text="Search" />
         </center>
 
 

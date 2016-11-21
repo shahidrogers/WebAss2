@@ -13,7 +13,7 @@
             <asp:BoundField DataField="location" HeaderText="Location" SortExpression="location" />
             <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
             <asp:BoundField DataField="numTickets" HeaderText="Number of tickets" SortExpression="numTickets" />
-            <asp:BoundField DataField="price" HeaderText="Price per ticket (RM)" SortExpression="price" />
+            <asp:BoundField DataField="price" HeaderText="Price per ticket (RM)" SortExpression="price" DataFormatString="{0:0.00}" />
         </Fields>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -26,7 +26,7 @@
     </asp:SqlDataSource>
     <br />
     Select number of tickets:
-    <asp:DropDownList ID="DropDownList1" runat="server">
+    <asp:DropDownList ID="DDLNumTickets" runat="server">
         <asp:ListItem Selected="True">1</asp:ListItem>
         <asp:ListItem>2</asp:ListItem>
         <asp:ListItem>3</asp:ListItem>
@@ -39,4 +39,18 @@
         <asp:ListItem>10</asp:ListItem>
     </asp:DropDownList>
     <asp:Button ID="btnBookTicket" runat="server" class="btn btn-primary" Text="Book Ticket" OnClick="btnBookTicket_Click" />
+    <br />
+    <asp:Panel ID="panelBookFail" runat="server" Visible="false">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Unsuccessful!</strong> Booking failed.
+        </div>
+    </asp:Panel>
+     <asp:Panel ID="panelBookingSuccess" runat="server" Visible="false">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Success!</strong> Your booking has been made. 
+          <br />Your reservation ID is : <strong><asp:Label ID="lblReservationString" runat="server"></asp:Label></strong>
+        </div>
+    </asp:Panel>
 </asp:Content>

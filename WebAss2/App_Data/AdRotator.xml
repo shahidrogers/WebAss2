@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>Images/Maroon5.jpg</ImageUrl>
+    <NavigateUrl>http://localhost:54535/EventDetails?id=2</NavigateUrl>
+    <AlternateText>Maroon 5 Concert</AlternateText>
+    <Impressions>1</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/LinkinPark.jpg</ImageUrl>
+    <NavigateUrl>http://localhost:54535/EventDetails?id=5</NavigateUrl>
+    <AlternateText>Linkin Park Concert</AlternateText>
+    <Impressions>1</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/JohnMayer.jpg</ImageUrl>
+    <NavigateUrl>http://localhost:54535/EventDetails?id=1</NavigateUrl>
+    <AlternateText>John Mayer Concert</AlternateText>
+    <Impressions>1</Impressions>
+  </Ad>
+</Advertisements>

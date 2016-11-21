@@ -27,7 +27,7 @@
                         <asp:BoundField DataField="location" HeaderText="Location" SortExpression="location" />
                         <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
                         <asp:BoundField DataField="numTickets" HeaderText="Ticket Quantity" SortExpression="numTickets" />
-                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" />
+                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" DataFormatString="{0:0.00}" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

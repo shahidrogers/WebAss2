@@ -64,8 +64,9 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <%--<li><a runat="server" href="~/Account/Register">Register</a></li>--%>
-                        <li><a runat="server" href="~/Login">Admin/Clerk</a></li>
+                        <li id="BtnLogin" runat="server"><a runat="server" href="~/Login">Login</a></li>
+                        <li id="ListLoggedIn" runat="server"><a runat="server" href="~/Login">Admin/Clerk Panel</a></li>
+                        <li id="BtnLogout" runat="server"><a runat="server" href="~/Login">Logout</a></li>
                     </ul>
 
                 </div>

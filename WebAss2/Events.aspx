@@ -1,7 +1,13 @@
 ﻿<%@ Page Title="Events" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Events.aspx.cs" Inherits="WebAss2.Events" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <center><asp:AdRotator ID="ConcertAdRotator" runat="server" DataSourceID="XmlDataSource1" Width="450px" /></center>
+    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/App_Data/AdRotator.xml"></asp:XmlDataSource>
+    
     <h2><%: Title %></h2>
+
+    
     <p>We have retrieved a bunch of events for you.</p>
 
     <p>
@@ -14,7 +20,7 @@
                 <asp:BoundField DataField="location" HeaderText="Location" SortExpression="location" />
                 <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
                 <asp:BoundField DataField="numTickets" HeaderText="Ticket Quantity" SortExpression="numTickets" />
-                <asp:BoundField DataField="price" HeaderText="Price (RM)" SortExpression="price" />
+                <asp:BoundField DataField="price" HeaderText="Price (RM)" SortExpression="price" DataFormatString="{0:0.00}"  />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -25,6 +31,10 @@
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT * FROM [Events]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT * FROM [Events] WHERE ([date] &gt;= @date)">
+            <SelectParameters>
+                <asp:Parameter DbType="Date" DefaultValue="" Name="date" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </p>
 </asp:Content>

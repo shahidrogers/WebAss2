@@ -13,5 +13,10 @@ namespace WebAss2
         {
 
         }
+
+        protected void btnSearch_OnClick(object s, EventArgs e)
+        {
+            Response.Redirect("~/Events_Search.aspx/?eventTitle=" + tbSearch.Text);
+        }
     }
 }

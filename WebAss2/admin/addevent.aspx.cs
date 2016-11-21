@@ -96,5 +96,25 @@ namespace WebAss2
             Response.Redirect("~/Login.aspx");
         }
 
+        protected void ValidateDate(object sender, ServerValidateEventArgs e)
+        {
+            DateTime selectedDate = calDate.SelectedDate;
+            Console.WriteLine(selectedDate.ToShortDateString());
+
+            if (selectedDate < DateTime.Today)
+            {
+                e.IsValid = false;
+                calDate.SelectedDate = DateTime.Today;
+            }
+
+        }
+
+
+
+        protected void calDate_SelectionChanged(object source, EventArgs e)
+        {
+            CVDate.Validate();
+        }
+
     }
 }

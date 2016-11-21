@@ -19,5 +19,20 @@ namespace WebAss2
             }
         }
 
+        protected void DetailsView1_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
+        {
+            Response.Redirect("~/admin/panel.aspx");
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            Session["Title"] = DetailsView1.Rows[1].Cells[1].Text.ToString();
+            Session["Description"] = DetailsView1.Rows[2].Cells[1].Text.ToString();
+            Session["Venue"] = DetailsView1.Rows[3].Cells[1].Text.ToString();
+            Session["Date"] = DateTime.Parse(DetailsView1.Rows[5].Cells[1].Text.ToString());
+            Session["NumTickets"] = DetailsView1.Rows[6].Cells[1].Text.ToString();
+            Session["Price"] = DetailsView1.Rows[7].Cells[1].Text.ToString();
+            Response.Redirect("~/admin/updateevent.aspx?id=" + Request.QueryString["id"]);
+        }
     }
 }

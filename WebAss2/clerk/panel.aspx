@@ -18,13 +18,15 @@
             <p>Here are all of your customers' reservations.</p>
 
             <p>
-                <asp:GridView ID="gvReservations" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="reservationId" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" OnRowDataBound="gvReservations_RowDataBound">
+                <asp:GridView ID="gvReservations" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="reservationId,EventId,userId" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" OnRowDataBound="gvReservations_RowDataBound">
                     <Columns>
-                        <asp:BoundField DataField="reservationId" HeaderText="Reservation ID" InsertVisible="False" ReadOnly="True" SortExpression="reservationId" />
-                        <asp:BoundField DataField="eventId" HeaderText="Event ID" SortExpression="eventId" />
-                        <asp:BoundField DataField="userId" HeaderText="User ID" SortExpression="userId" />
-                        <asp:BoundField DataField="reservationTime" HeaderText="Time" SortExpression="reservationTime" />
-                        <asp:BoundField DataField="seatQuantity" HeaderText="Quantity of Seat(s)" SortExpression="seatQuantity" />
+                        <asp:BoundField DataField="reservationId" HeaderText="Reservation" InsertVisible="False" ReadOnly="True" SortExpression="reservationId" />
+                        <asp:BoundField DataField="EventId" HeaderText="Event" SortExpression="EventId" InsertVisible="False" ReadOnly="True" />
+                        <asp:BoundField DataField="title" HeaderText="Event Name" SortExpression="title" />
+                        <asp:BoundField DataField="userId" HeaderText="User" InsertVisible="False" ReadOnly="True" SortExpression="userId" />
+                        <asp:BoundField DataField="name" HeaderText="User Name" SortExpression="name" />
+                        <asp:BoundField DataField="seatQuantity" HeaderText="Number of Tickets" SortExpression="seatQuantity" />
+                        <asp:BoundField DataField="reservationTime" HeaderText="Reservation Time" SortExpression="reservationTime" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -35,7 +37,12 @@
                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                     <SortedDescendingHeaderStyle BackColor="#242121" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT * FROM [Reservations]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT Reservations.reservationId, Reservations.reservationTime, Reservations.seatQuantity, Events.EventId, Events.title, Users.userId, Users.name  
+FROM [Reservations] 
+INNER JOIN Events
+ON Reservations.eventId=Events.eventId
+INNER JOIN Users
+ON Reservations.userId=Users.userId"></asp:SqlDataSource>
             </p>
         </div>
     </div>

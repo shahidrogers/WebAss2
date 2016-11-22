@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="Event Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EventDetails.aspx.cs" Inherits="WebAss2.EventDetails" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Panel ID="panelSignupSuccessful" runat="server" Visible="false" Width="500px">
+        <div class="alert alert-success alert-dismissible" role="alert" Width="500px">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Sign up successful!</strong> You may now proceed to make a booking below.</strong>
+        </div>
+        <br />
+    </asp:Panel>
+    
     <h2><%: Title %></h2>
 
     <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="600px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateRows="False" DataKeyNames="eventId" DataSourceID="SqlDataSource1">
@@ -24,6 +32,7 @@
             <asp:QueryStringParameter DefaultValue="" Name="eventId" QueryStringField="id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:HiddenField ID="hfRecentSignup" runat="server" value="false" />
     <br />
     Select number of tickets:
     <asp:DropDownList ID="DDLNumTickets" runat="server">
@@ -50,6 +59,7 @@
             </strong><hr />
             Haven't registered?<strong> Enter your details below to sign up.<br /><br />
             <asp:TextBox runat="server" type="text" ID="tbFullName" class="form-control" placeholder="Full Name" />
+            <asp:TextBox runat="server" type="text" ID="tbContactNo" class="form-control" placeholder="Phone Number" />
             <asp:TextBox runat="server" type="text" ID="tbUsername" class="form-control" placeholder="Username" />
             <asp:TextBox runat="server" type="Password" ID="tbPassword" class="form-control" placeholder="Password" />
             <br />

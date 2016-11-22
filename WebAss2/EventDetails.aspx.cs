@@ -13,7 +13,10 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["TicketoLoginAs"] == null)
+            {
+                panelLoginContinue.Visible = false;
+            }
         }
 
        
@@ -157,7 +160,70 @@ namespace WebAss2
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
+            queryDBsignup();
+        }
+
+        public void queryDBsignup()
+        {
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            string sql = "INSERT INTO Users (name, username, password, userType, contactNo) OUTPUT INSERTED.userId VALUES "
+                    + " (@name,@username,@password,@userType,@contactNo)";
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlParameter[] param = new SqlParameter[5];
+                //param[0] = new SqlParameter("@id", SqlDbType.Int, 20);
+                param[0] = new SqlParameter("@name", SqlDbType.VarChar, 255);
+                param[1] = new SqlParameter("@username", SqlDbType.VarChar, 50);
+                param[2] = new SqlParameter("@password", SqlDbType.VarChar, 50);
+                param[3] = new SqlParameter("@userType", SqlDbType.VarChar, 50);
+                param[4] = new SqlParameter("@contactNo", SqlDbType.VarChar, 255);
+
+                param[0].Value = tbFullName.Text;
+                param[1].Value = tbUsername.Text;
+                param[2].Value = tbPassword.Text;
+                param[3].Value = "customer";
+                param[4].Value = tbContactNo.Text;
+
+                for (int i = 0; i < param.Length; i++)
+                {
+                    cmd.Parameters.Add(param[i]);
+                }
+
+                cmd.CommandType = CommandType.Text;
+                int userId = (int)cmd.ExecuteScalar();
+
+                //success, login user by saving cookie
+                HttpCookie cookie = new HttpCookie("TicketoLoginAs");
+                cookie.Value = "customer";
+                cookie.Expires = DateTime.Now.AddHours(1);
+                Response.Cookies.Add(cookie);
+
+                HttpCookie cookieUserId = new HttpCookie("TicketoUserId");
+                cookieUserId.Value = userId.ToString();
+                cookieUserId.Expires = DateTime.Now.AddHours(1);
+                Response.Cookies.Add(cookieUserId);
+
+                HttpCookie cookieRecentSignup = new HttpCookie("TicketoRecentSignup");
+                cookieRecentSignup.Value = "true";
+                cookieRecentSignup.Expires = DateTime.Now.AddHours(1);
+                Response.Cookies.Add(cookieRecentSignup);
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
+            }
+            finally
+            {
+                conn.Close();
+            }
 
         }
+
+
     }
 }

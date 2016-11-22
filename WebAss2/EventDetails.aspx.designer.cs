@@ -58,6 +58,24 @@ namespace WebAss2 {
         protected global::System.Web.UI.WebControls.Button btnBookTicket;
         
         /// <summary>
+        /// panelLoginContinue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelLoginContinue;
+        
+        /// <summary>
+        /// tbFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbFullName;
+        
+        /// <summary>
         /// panelBookFail control.
         /// </summary>
         /// <remarks>

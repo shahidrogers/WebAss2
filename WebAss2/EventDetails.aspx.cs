@@ -21,7 +21,8 @@ namespace WebAss2
         {
             if (Request.Cookies["TicketoLoginAs"] == null)
             {
-                Response.Write("<script>alert('Please login to book a ticket')</script>");
+                //Response.Write("<script>alert('Please login to book a ticket')</script>");
+                panelLoginContinue.Visible = true;
             } else
             {
                 CVNumTickets.Validate();
@@ -151,6 +152,11 @@ namespace WebAss2
             {
                 conn.Close();
             }
+
+        }
+
+        protected void btnSignUp_Click(object sender, EventArgs e)
+        {
 
         }
     }

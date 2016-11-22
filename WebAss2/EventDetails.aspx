@@ -40,15 +40,31 @@
     </asp:DropDownList>
     <asp:CustomValidator ID="CVNumTickets" runat="server" OnServerValidate="ValidateNumTickets" Text="Not enough tickets available!"></asp:CustomValidator>
     <asp:Button ID="btnBookTicket" runat="server" class="btn btn-primary" Text="Book Ticket" OnClick="btnBookTicket_Click" />
-    <br />
-    <asp:Panel ID="panelBookFail" runat="server" Visible="false">
+    <br /><br />
+    <asp:Panel ID="panelLoginContinue" runat="server" Visible="false" Width="500px">
+        <div class="alert alert-danger alert-dismissible" role="alert" Width="500px">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>You have to be logged in to book ticket!</strong>
+            <br /><br />
+            Already registered? <strong><a href="Login.aspx">Log in now</a></strong>
+            </strong><hr />
+            Haven't registered?<strong> Enter your details below to sign up.<br /><br />
+            <asp:TextBox runat="server" type="text" ID="tbFullName" class="form-control" placeholder="Full Name" />
+            <asp:TextBox runat="server" type="text" ID="tbUsername" class="form-control" placeholder="Username" />
+            <asp:TextBox runat="server" type="Password" ID="tbPassword" class="form-control" placeholder="Password" />
+            <br />
+            <asp:Button ID="btnSignUp" runat="server" class="btn btn-lg btn-primary" Text="Sign up to continue" OnClick="btnSignUp_Click" />
+        </div>
+        </strong>
+    </asp:Panel>
+    <asp:Panel ID="panelBookFail" runat="server" Visible="false" Width="500px">
         <div class="alert alert-danger alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Unsuccessful!</strong> Booking failed.
         </div>
     </asp:Panel>
-     <asp:Panel ID="panelBookingSuccess" runat="server" Visible="false">
-        <div class="alert alert-success alert-dismissible" role="alert">
+     <asp:Panel ID="panelBookingSuccess" runat="server" Visible="false" Width="500px">
+        <div class="alert alert-success alert-dismissible" role="alert" Width="500px">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Success!</strong> Your booking has been made. 
           <br />Your reservation ID is : <strong><asp:Label ID="lblReservationString" runat="server"></asp:Label></strong>

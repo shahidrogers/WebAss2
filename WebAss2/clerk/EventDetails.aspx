@@ -15,7 +15,7 @@
         <div class="col-md-10">
             <h2>Event Details</h2>
 
-            <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="600px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateRows="False" DataKeyNames="eventId" DataSourceID="SqlDataSource1" OnItemDeleted="DetailsView1_ItemDeleted">
+            <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="600px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateRows="False" DataKeyNames="eventId" DataSourceID="SqlDataSource1" >
                 <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
                 <Fields>
                     <asp:BoundField DataField="eventId" HeaderText="Event ID" InsertVisible="False" ReadOnly="True" SortExpression="eventId" />
@@ -33,14 +33,39 @@
             </asp:DetailsView>
 
             <br />
-
+            Select number of tickets:
+            <asp:DropDownList ID="DDLNumTickets" runat="server">
+                <asp:ListItem Selected="True">1</asp:ListItem>
+                <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem>5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8</asp:ListItem>
+                <asp:ListItem>9</asp:ListItem>
+                <asp:ListItem>10</asp:ListItem>
+            </asp:DropDownList>
+            <asp:CustomValidator ID="CVNumTickets" runat="server" OnServerValidate="ValidateNumTickets" Text="Not enough tickets available!"></asp:CustomValidator>
+            <br /> 
             <asp:Button ID="btnEdit" runat="server" class="btn btn-lg btn-primary btn-block" Text="Sell Ticket(s)" OnClick="btnSell_Click" />
+            <br />
+            <asp:Panel ID="panelConfirmSuccess" runat="server" Visible="false">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Success!</strong> Sale has been recorded.
+                  <br />
+                  <a ID="linkTicket" href="#" runat="server" class="alert-link" target="_blank">Click here to print the ticket.</a>
+                </div>
+            </asp:Panel>
+            <asp:Panel ID="panelConfirmFail" runat="server" Visible="false">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Unsuccessful!</strong> Sale could not be recorded.
+                </div>
+            </asp:Panel>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" 
-                SelectCommand="SELECT * FROM [Events] WHERE ([eventId] = @eventId)" 
-                DeleteCommand="DELETE FROM Events WHERE (eventId = @eventId)" UpdateCommand="UPDATE Events SET title = @title, description = @description, location = @location, date = @date, numTickets = @numTickets, price = price, venue = @venue WHERE (eventId = @eventId)">
-                <DeleteParameters>
-                    <asp:Parameter Name="eventId" />
-                </DeleteParameters>
+                SelectCommand="SELECT * FROM [Events] WHERE ([eventId] = @eventId)" UpdateCommand="UPDATE Events SET title = @title, description = @description, location = @location, date = @date, numTickets = @numTickets, price = price, venue = @venue WHERE (eventId = @eventId)">
                 <SelectParameters>
                     <asp:QueryStringParameter DefaultValue="" Name="eventId" QueryStringField="id" Type="Int32" />
                 </SelectParameters>

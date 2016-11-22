@@ -119,6 +119,7 @@
     <Content Include="clerk\EventDetails.aspx" />
     <Content Include="clerk\SearchReservation.aspx" />
     <Content Include="clerk\ReservationDetails.aspx" />
+    <Content Include="clerk\Tickets2.aspx" />
     <Content Include="clerk\Tickets.aspx" />
     <Content Include="clerk\ViewEvents.aspx" />
     <Content Include="EventDetails.aspx" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="clerk\ReservationDetails.aspx.designer.cs">
       <DependentUpon>ReservationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="clerk\Tickets2.aspx.cs">
+      <DependentUpon>Tickets2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clerk\Tickets2.aspx.designer.cs">
+      <DependentUpon>Tickets2.aspx</DependentUpon>
     </Compile>
     <Compile Include="clerk\Tickets.aspx.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>

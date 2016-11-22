@@ -161,6 +161,7 @@ namespace WebAss2
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
             queryDBsignup();
+            Response.Redirect(Request.RawUrl);
         }
 
         public void queryDBsignup()

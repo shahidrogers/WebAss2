@@ -59,9 +59,14 @@
             </strong><hr />
             Haven't registered?<strong> Enter your details below to sign up.<br /><br />
             <asp:TextBox runat="server" type="text" ID="tbFullName" class="form-control" placeholder="Full Name" />
+            <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate ="tbFullName" ErrorMessage="Please enter a name"></asp:RequiredFieldValidator>
             <asp:TextBox runat="server" type="text" ID="tbContactNo" class="form-control" placeholder="Phone Number" />
+            <asp:RequiredFieldValidator ID="rfvContactNo" runat="server" ControlToValidate ="tbContactNo" ErrorMessage="Please enter a contact number"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="revContactNo" runat="server" ErrorMessage="The number entered is not valid" ControlToValidate="tbContactNo" ValidationExpression="^\d{10,11}$" />
             <asp:TextBox runat="server" type="text" ID="tbUsername" class="form-control" placeholder="Username" />
+            <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate ="tbUsername" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>
             <asp:TextBox runat="server" type="Password" ID="tbPassword" class="form-control" placeholder="Password" />
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate ="tbPassword" ErrorMessage="Please enter a password"></asp:RequiredFieldValidator>
             <br />
             <asp:Button ID="btnSignUp" runat="server" class="btn btn-lg btn-primary" Text="Sign up to continue" OnClick="btnSignUp_Click" />
         </div>

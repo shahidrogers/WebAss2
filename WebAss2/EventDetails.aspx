@@ -62,7 +62,7 @@
             <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate ="tbFullName" ErrorMessage="Please enter a name"></asp:RequiredFieldValidator>
             <asp:TextBox runat="server" type="text" ID="tbContactNo" class="form-control" placeholder="Phone Number" />
             <asp:RequiredFieldValidator ID="rfvContactNo" runat="server" ControlToValidate ="tbContactNo" ErrorMessage="Please enter a contact number"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="revContactNo" runat="server" ErrorMessage="The number entered is not valid" ControlToValidate="tbContactNo" ValidationExpression="^\d{10,11}$" />
+            <asp:RegularExpressionValidator ID="revContactNo" runat="server" ErrorMessage="The number entered is not valid" ControlToValidate="tbContactNo" ValidationExpression="^[0][1]\d{8,9}$" />
             <asp:TextBox runat="server" type="text" ID="tbUsername" class="form-control" placeholder="Username" />
             <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate ="tbUsername" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>
             <asp:TextBox runat="server" type="Password" ID="tbPassword" class="form-control" placeholder="Password" />

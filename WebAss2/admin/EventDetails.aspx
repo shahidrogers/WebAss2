@@ -32,7 +32,9 @@
             </asp:DetailsView>
 
             <asp:Button ID="btnEdit" runat="server" class="btn btn-lg btn-primary btn-block" Text="Edit Event" OnClick="btnEdit_Click" />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT * FROM [Events] WHERE ([eventId] = @eventId)" DeleteCommand="DELETE FROM Events WHERE (eventId = @eventId)" UpdateCommand="UPDATE Events SET title = @title, description = @description, location = @location, date = @date, numTickets = @numTickets, price = price, venue = @venue WHERE (eventId = @eventId)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" 
+                SelectCommand="SELECT * FROM [Events] WHERE ([eventId] = @eventId)" 
+                DeleteCommand="DELETE FROM Events WHERE (eventId = @eventId)" UpdateCommand="UPDATE Events SET title = @title, description = @description, location = @location, date = @date, numTickets = @numTickets, price = price, venue = @venue WHERE (eventId = @eventId)">
                 <DeleteParameters>
                     <asp:Parameter Name="eventId" />
                 </DeleteParameters>

@@ -132,7 +132,7 @@ namespace WebAss2
                 param[2] = new SqlParameter("@reservationId", SqlDbType.Int);
 
                 param[0].Value = DateTime.Now;
-                param[1].Value = int.Parse(DetailsView1.Rows[1].Cells[1].Text.ToString());
+                param[1].Value = int.Parse(DetailsView1.Rows[4].Cells[1].Text.ToString());
                 param[2].Value = int.Parse(Request.QueryString["id"]);
 
                 for (int i = 0; i < param.Length; i++)

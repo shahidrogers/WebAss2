@@ -16,26 +16,39 @@
         <div class="col-md-10">
             <h2>Editing event</h2>
             <p>Please fill in the following event details to proceed.</p>
-            <br />
-            <p>
+            <asp:ValidationSummary 
+                ID="ValidationSummary" 
+                runat="server" 
+                HeaderText="Errors found:" 
+                ShowMessageBox="false" 
+                DisplayMode="BulletList" 
+                ShowSummary="true"
+                Width="450"
+                ForeColor="Red"
+                Font-Italic="true"
+                />
+             <p>
                 <div class="row">
                   <div class="col-md-2"><b>Title</b></div>
-                  <div class="col-md-10"><asp:TextBox ID="tbTitle" Width="200px" runat="server"></asp:TextBox></div>
-                    <asp:RequiredFieldValidator ID="rfvTitle" runat="server" ControlToValidate ="tbTitle" ErrorMessage="Please enter a name"></asp:RequiredFieldValidator>
+                  <div class="col-md-10"><asp:TextBox ID="tbTitle" Width="200px" runat="server"></asp:TextBox>
+                       <asp:RequiredFieldValidator ID="rfvTitle" runat="server" ControlToValidate ="tbTitle" ErrorMessage="Please enter a name" Text="*Required"></asp:RequiredFieldValidator>
+                  </div>
                 </div>
             </p>
             <p>
                 <div class="row">
                   <div class="col-md-2"><b>Description</b></div>
-                  <div class="col-md-10"><asp:TextBox ID="tbDescription" runat="server" Height="100px" Width="200px" TextMode="MultiLine"></asp:TextBox></div>
-                    <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate ="tbDescription" ErrorMessage="Please enter a description"></asp:RequiredFieldValidator>
+                  <div class="col-md-10"><asp:TextBox ID="tbDescription" runat="server" Height="100px" Width="200px" TextMode="MultiLine"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate ="tbDescription" ErrorMessage="Please enter a description" Text="*Required"></asp:RequiredFieldValidator>
+                  </div>
                 </div>
             </p>
             <p>
                 <div class="row">
                   <div class="col-md-2"><b>Venue</b></div>
-                  <div class="col-md-10"><asp:TextBox ID="tbVenue" Width="200px" runat="server"></asp:TextBox></div>
-                    <asp:RequiredFieldValidator ID="rfvVenue" runat="server" ControlToValidate ="tbVenue" ErrorMessage="Please enter a venue"></asp:RequiredFieldValidator>
+                  <div class="col-md-10"><asp:TextBox ID="tbVenue" Width="200px" runat="server"></asp:TextBox>
+                       <asp:RequiredFieldValidator ID="rfvVenue" runat="server" ControlToValidate ="tbVenue" ErrorMessage="Please enter a venue" Text="*Required"></asp:RequiredFieldValidator>
+                  </div>
                 </div>
             </p>
             <p>
@@ -65,24 +78,26 @@
                           <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
                           <WeekendDayStyle BackColor="#FFFFCC" />
                       </asp:Calendar>
-                       <asp:CustomValidator ID="CVDate" runat="server" OnServerValidate="ValidateDate" ErrorMessage="Cannot be backdated!"></asp:CustomValidator>
+                       <asp:CustomValidator ID="CVDate" runat="server" OnServerValidate="ValidateDate" Text="Cannot be backdated!" ValidationGroup="group2"></asp:CustomValidator>
                   </div>
                 </div>
             </p>
             <p>
                 <div class="row">
                   <div class="col-md-2"><b>Ticket Quantity</b></div>
-                  <div class="col-md-10"><asp:TextBox ID="tbTicketQty" Width="200px" runat="server"></asp:TextBox></div>
-                  <asp:RequiredFieldValidator ID="rfvTicket" runat="server" ControlToValidate ="tbTicketQty" ErrorMessage="Please enter ticket quantity"></asp:RequiredFieldValidator>
-                  <asp:RangeValidator ID="rvTicket" runat="server" ControlToValidate="tbTicketQty" ErrorMessage="Invalid ticket quantity" MinimumValue="1" MaximumValue="2147483647" Type="Integer"></asp:RangeValidator>
+                  <div class="col-md-10"><asp:TextBox ID="tbTicketQty" Width="200px" runat="server"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="rfvTicket" runat="server" ControlToValidate ="tbTicketQty" ErrorMessage="Please enter ticket quantity" Text="*Required"></asp:RequiredFieldValidator>
+                      <asp:RangeValidator ID="rvTicket" runat="server" ControlToValidate="tbTicketQty" ErrorMessage="Invalid ticket quantity" MinimumValue="1" MaximumValue="2147483647" Type="Integer" Text="*Invalid"></asp:RangeValidator>
+                  </div>
                 </div>
             </p>
             <p>
                 <div class="row">
                   <div class="col-md-2"><b>Ticket Price (RM)</b></div>
-                  <div class="col-md-10"><asp:TextBox ID="tbPrice" Width="200px" runat="server"></asp:TextBox></div>
-                  <asp:RequiredFieldValidator ID="rfvPrice" runat="server" ControlToValidate ="tbPrice" ErrorMessage="Please enter ticket price"></asp:RequiredFieldValidator>
-                  <asp:RangeValidator ID="rvPrice" runat="server" ControlToValidate="tbPrice" ErrorMessage="Invalid ticket price" MinimumValue="0.05" MaximumValue ="10000000.00" Type="Currency"></asp:RangeValidator>  
+                  <div class="col-md-10"><asp:TextBox ID="tbPrice" Width="200px" runat="server"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="rfvPrice" runat="server" ControlToValidate ="tbPrice" ErrorMessage="Please enter ticket price" Text="*Required"></asp:RequiredFieldValidator>
+                      <asp:RangeValidator ID="rvPrice" runat="server" ControlToValidate="tbPrice" ErrorMessage="Invalid ticket price" MinimumValue="0.05" MaximumValue ="10000000.00" Type="Currency" Text="*Invalid"></asp:RangeValidator>  
+                  </div>
                 </div>
             </p>
             <br />

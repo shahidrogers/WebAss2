@@ -24,7 +24,11 @@ namespace WebAss2
                 Response.Write("<script>alert('Please login to book a ticket')</script>");
             } else
             {
-                queryDB();
+                CVNumTickets.Validate();
+                if (CVNumTickets.IsValid) {
+                    queryDB();
+                }
+                
             }
 
         }
@@ -33,6 +37,53 @@ namespace WebAss2
         {
             //sets the connection string from your web config file "ConnString" is the name of your Connection String
             return System.Configuration.ConfigurationManager.ConnectionStrings["WebAss2.Properties.Settings.TicketoConn"].ConnectionString;
+        }
+
+        public int checkSeatsLeft()
+        {
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            string sql = "SELECT numTickets FROM Events WHERE eventId = @eventId";
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+             
+                SqlParameter param = new SqlParameter();
+               
+                param = new SqlParameter("@eventId", SqlDbType.Int);
+                param.Value = int.Parse(Request.QueryString["id"]);
+               
+                cmd.Parameters.Add(param);
+                cmd.CommandType = CommandType.Text;
+                
+                return (int)cmd.ExecuteScalar();
+               
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                panelBookFail.Visible = true;
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                return 0;
+                throw new Exception(msg);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        protected void ValidateNumTickets(object sender, ServerValidateEventArgs e)
+        {
+            int remainingSeats = checkSeatsLeft();
+
+            if (remainingSeats < int.Parse(DDLNumTickets.SelectedValue))
+            {
+                e.IsValid = false;
+            }
+
         }
 
         public void queryDB()

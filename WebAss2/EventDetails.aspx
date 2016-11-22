@@ -38,6 +38,7 @@
         <asp:ListItem>9</asp:ListItem>
         <asp:ListItem>10</asp:ListItem>
     </asp:DropDownList>
+    <asp:CustomValidator ID="CVNumTickets" runat="server" OnServerValidate="ValidateNumTickets" Text="Not enough tickets available!"></asp:CustomValidator>
     <asp:Button ID="btnBookTicket" runat="server" class="btn btn-primary" Text="Book Ticket" OnClick="btnBookTicket_Click" />
     <br />
     <asp:Panel ID="panelBookFail" runat="server" Visible="false">

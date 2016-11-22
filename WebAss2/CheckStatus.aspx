@@ -41,7 +41,9 @@
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
             </asp:DetailsView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT eventId, title, description, location, date, price, venue FROM Events WHERE (eventId IN (SELECT eventId FROM Reservations WHERE (reservationId = @reservationId)))">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" 
+                SelectCommand="SELECT eventId, title, description, location, date, price, venue FROM Events WHERE 
+                (eventId IN (SELECT eventId FROM Reservations WHERE (reservationId = @reservationId)))">
             </asp:SqlDataSource>
             <br />
 

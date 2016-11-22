@@ -33,13 +33,15 @@
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
             </asp:DetailsView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT Reservations.reservationId, Reservations.reservationTime, Reservations.seatQuantity, Events.EventId, Events.title, Events.location, Events.venue, Events.date, Events.price, Users.userId, Users.name  
-FROM [Reservations] 
-INNER JOIN Events
-ON Reservations.eventId=Events.eventId
-INNER JOIN Users
-ON Reservations.userId=Users.userId
-WHERE (Reservations.reservationId = @reservationId)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" 
+                SelectCommand="SELECT Reservations.reservationId, Reservations.reservationTime, Reservations.seatQuantity, Events.EventId, 
+                Events.title, Events.location, Events.venue, Events.date, Events.price, Users.userId, Users.name  
+                FROM [Reservations] 
+                INNER JOIN Events
+                ON Reservations.eventId=Events.eventId
+                INNER JOIN Users
+                ON Reservations.userId=Users.userId
+                WHERE (Reservations.reservationId = @reservationId)">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="reservationId" QueryStringField="id" Type="Int32" />
                 </SelectParameters>

@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <h2>Reservation Details</h2>
+        <h2>Thank you for your purchase.</h2>
+        <p><strong>Protect this ticket!</strong> Present this ticket for verification at the time of admission to the event.</p>
 
             <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="600px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateRows="False" DataKeyNames="reservationId" DataSourceID="SqlDataSource1">
                 <EditRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />

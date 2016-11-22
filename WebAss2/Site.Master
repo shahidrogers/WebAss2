@@ -58,7 +58,7 @@
                           <a runat="server" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservations<span class="caret"></span></a>
                           <ul class="dropdown-menu">
                             <li><a runat="server" href="~/CheckStatus">Check Status</a></li>
-                            <li><a runat="server" href="~/CancelReservation">Cancel Reservation</a></li>
+                            <li><a id="btnCancelReservation" runat="server" href="~/CancelReservation">Cancel Reservation</a></li>
                           </ul>
                         </li>
                     </ul>

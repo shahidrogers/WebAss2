@@ -14,6 +14,7 @@ namespace WebAss2
             if (Request.Cookies["TicketoLoginAs"] != null)
             {
                 BtnLogin.Visible = false;
+                btnCancelReservation.Visible = true;
 
                 if (Request.Cookies["TicketoLoginAs"].Value.ToString().Equals("customer"))
                 {
@@ -30,6 +31,7 @@ namespace WebAss2
                 BtnLogin.Visible = true;
                 ListLoggedIn.Visible = false;
                 BtnLogout.Visible = false;
+                btnCancelReservation.Visible = false;
             }
         }
     }

@@ -13,7 +13,8 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            panelCancelFail.Visible = false;
+            panelCancelSuccess.Visible = false;
         }
 
         public string GetConnectionString()
@@ -30,7 +31,14 @@ namespace WebAss2
             }
             else
             {
-                queryDB();
+                if (checkUser() == true)
+                {
+                    queryDB();
+                } else
+                {
+                    panelCancelFail.Visible = true;
+                }
+                
             }
         }
 
@@ -105,5 +113,50 @@ namespace WebAss2
                 conn.Close();
             }
         }
+
+        public Boolean checkUser()
+        {
+           
+            SqlConnection conn = new SqlConnection(GetConnectionString());
+            string sql = "SELECT userId FROM Reservations WHERE reservationId = @reservationId";
+           
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlParameter param = new SqlParameter();
+              
+                param = new SqlParameter("@reservationId", SqlDbType.Int);
+                param.Value = int.Parse(tbReservationID.Text);
+                cmd.Parameters.Add(param);
+
+                cmd.CommandType = CommandType.Text;
+               
+                int userId = (int)cmd.ExecuteScalar();
+
+                if (userId == int.Parse(Request.Cookies["TicketoUserId"].Value.ToString()) || Request.Cookies["TicketoLoginAs"].Value.ToString().Equals("admin") ||
+                    Request.Cookies["TicketoLoginAs"].Value.ToString().Equals("clerk"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                panelCancelFail.Visible = true;
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+    
     }
 }

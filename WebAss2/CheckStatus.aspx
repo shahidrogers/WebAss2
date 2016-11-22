@@ -11,7 +11,7 @@
     <asp:Panel ID="panelBookFail" runat="server" Visible="false">
         <div class="alert alert-danger alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Unsuccessful!</strong> Booking failed.
+          <strong>Unsuccessful!</strong> No reservation could be found.
         </div>
     </asp:Panel>
      <asp:Panel ID="panelCheckSuccess" runat="server" Visible="false">

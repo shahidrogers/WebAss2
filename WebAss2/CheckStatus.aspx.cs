@@ -13,15 +13,22 @@ namespace WebAss2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            panelBookFail.Visible = false;
+            panelCheckSuccess.Visible = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
-        {  
+        {
             SqlDataSource1.SelectParameters.Clear();
             SqlDataSource1.SelectParameters.Add("reservationId", System.TypeCode.Int32, tbReservationID.Text);
-            GetNumTickets();
-            panelCheckSuccess.Visible = true;
+            if (GetNumTickets().Equals("nil"))
+            {
+                panelBookFail.Visible = true;
+            } else
+            {
+                panelCheckSuccess.Visible = true;
+            }
+            
         }
 
         public String GetNumTickets()
@@ -40,16 +47,25 @@ namespace WebAss2
                 cmd.Parameters.Add(param);
                 cmd.CommandType = CommandType.Text;
 
-                int result = (int)cmd.ExecuteScalar();
+                object result = cmd.ExecuteScalar();
 
-                if (result > 0)
+                if (result != null)
                 {
-                    return result.ToString();
-                }
-                else
+                    int result2 = (int)result;
+
+                    if (result2 > 0)
+                    {
+                        return result2.ToString();
+                    }
+                    else
+                    {
+                        return "nil";
+                    }
+                } else
                 {
                     return "nil";
                 }
+                
             }
             catch (System.Data.SqlClient.SqlException ex)
             {

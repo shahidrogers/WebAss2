@@ -1,0 +1,47 @@
+﻿<%@ Page Title="Clerk Panel - View Events" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewEvents.aspx.cs" Inherits="WebAss2.ViewEventsClerk" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <br />
+    <div class="row">
+        <div class="col-md-2">
+            <center><h3>Clerk Panel</h3></center>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="panel.aspx">View Reservations</a></li>
+                <li role="presentation"><a href="#">Search Reservation</a></li>
+                <li role="presentation" class="active"><a href="ViewEvents.aspx">View Events</a></li>
+            </ul>
+            <br />
+            <asp:Button class="btn btn-default btn-block" ID="btnLogout" runat="server" Text="Log Out" OnClick="btnLogout_Click" />
+        </div>
+        <div class="col-md-10">
+            <h2>View Events</h2>
+            <p>Here are all of your events.</p>
+
+            <p>
+                <asp:GridView ID="gvEvents" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="eventId" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" OnRowDataBound="gvEvents_RowDataBound">
+                    <Columns>
+                        <asp:BoundField DataField="eventId" HeaderText="Event ID" InsertVisible="False" ReadOnly="True" SortExpression="eventId" />
+                        <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />
+                        <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                        <asp:BoundField DataField="venue" HeaderText="Venue" SortExpression="venue" />
+                        <asp:BoundField DataField="location" HeaderText="Location" SortExpression="location" />
+                        <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" />
+                        <asp:BoundField DataField="numTickets" HeaderText="Ticket Quantity" SortExpression="numTickets" />
+                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" DataFormatString="{0:0.00}" />
+                    </Columns>
+                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#242121" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebAss2.Properties.Settings.TicketoConn %>" SelectCommand="SELECT * FROM [Events]"></asp:SqlDataSource>
+            </p>
+        </div>
+    </div>
+  
+</asp:Content>

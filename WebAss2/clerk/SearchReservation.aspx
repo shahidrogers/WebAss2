@@ -9,6 +9,7 @@
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation"><a href="panel.aspx">View Reservations</a></li>
                 <li role="presentation" class="active"><a href="#">Search Reservation</a></li>
+                <li role="presentation"><a href="ViewEvents.aspx">View Events</a></li>
             </ul>
             <br />
             <asp:Button class="btn btn-default btn-block" ID="btnLogout" runat="server" Text="Log Out" OnClick="btnLogout_Click" />
